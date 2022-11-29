@@ -5,7 +5,7 @@ const authentication =(req,res,next)=>{
 if(!req.headers.authorization){
 res.send("please login again")
 
-}
+}else{
 const token =req.headers.authorization.split(" ")[1]
 jwt.verify(token,process.env.JWT_SECRET,(error,decoded)=>{
 
@@ -19,7 +19,7 @@ if(error){
 }
 
 })
-
+}
 
 
 

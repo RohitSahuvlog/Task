@@ -9,13 +9,13 @@ app.use(express.json())
 app.use(cors())
 PORT = 8000 ||  process.env.PORT
 
-app.get("/",()=>{
-    res.send("Home page")
-})
+
 app.use("/auth",userrouter)
 app.use(authentication)
 app.use("/manage",managerouter)
-
+app.get("/",(req,res)=>{
+    res.send("Home page")
+})
 
 app.listen(PORT,async(req,res)=>{
 
